@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Checkpoint4.Models.Instrument>
+
+@{
+    ViewBag.Title = "Rentals";
+}
+
+<h2>Rentals</h2>
+
+<table class="table">
+
+    <!-- cycle through each item in the instrument table and display to webpage -->
+    @foreach (var item in Model)
+    { 
+        if( item.type == "Used" )
+        {
+            <br />
+            <img src="~/Content/@item.description .png" />
+            <br />
+        }        
+        <div class="portfolio-caption">
+            <h4>@Html.ActionLink("---------------" + item.type + ' ' + item.description + "---------------", "Create", new { ID = item.instrumentID })</h4>
+            <p class="text-muted">$@item.price</p>
+        </div>
+    }
+</table>

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Summary";
+}
+
+<h2>Summary</h2>
+
+<p>Thank you @ViewBag.Client.firstName for submitting your order! You just ordered a high-quality @ViewBag.Instrument.description</p>
+
+<img src="~/Content/@ViewBag.image"
+
+<hr />
+<p>Order ID: @ViewBag.Client.clientID</p>
+<p>Instrument: @ViewBag.Instrument.description</p>
+<p>Condition: @ViewBag.Instrument.type</p>
+<p>Price: $@ViewBag.Instrument.price per month</p>
+<p>Total Payments (after 18 months): $@ViewBag.TotalPayments</p>
+<p>Client ID (for employee use): @ViewBag.Instrument.clientID</p>
+
+<p><@Html.ActionLink("Download", "Download")></p>

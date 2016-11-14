@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "BlowOut Musical Instrument Rentals";
+}
+
+<section id="top">
+    <p><br /><br /></p>
+    <div class="jumbotron">
+        <h1 id="inText" class="col-md-8">Welcome to BlowOut!</h1>
+        <div id="center">
+            <p class="col-md-4">Rent new or used instruments in <i>style</i>!</p>
+            <p><a href="@Url.Action("Rentals", "Home")" class="btn btn-primary btn-large page-scroll">Learn more &raquo;</a></p>
+        </div>
+        <p id="quote">
+            "It's easy to play any musical instrument: all you have to do is touch the
+            right key at the right time and the instrument will play itself”.  - Johann Sebastian Bach
+        </p>
+    </div>
+
+    <div class="row" id="myText">
+        <div class="col-md-6">
+            <h2>Learn about BlowOut</h2>
+            <p>
+                This unique musical instrument rental company provides high quality service and products with a hometown feel.
+                Lean more about us by clicking the button below.
+            </p>
+            <p><a class="btn btn-primary" href="@Url.Action("About", "Home")">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-6">
+            <h2>Contact BlowOut</h2>
+            <p>Have a question about your rental, or about BlowOut's products or services? Feel free to ask by clicking the button below.</p>
+            <p><a class="btn btn-primary" href="@Url.Action("Contact", "Home")">Contact BlowOut &raquo;</a></p>
+        </div>
+    </div>
+</section>
