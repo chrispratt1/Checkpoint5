@@ -110,12 +110,26 @@ namespace Checkpoint4.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
-            Instrument instrument = db.Instruments.Find(id);
-            instrument.clientID = null;
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (client == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                db.Clients.Remove(client);
+                foreach (Instrument instr in db.Instruments.ToList()){
+                    while(instr.clientID == id) {
+                        instr.clientID = null;
+                    }
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
         }
 
         protected override void Dispose(bool disposing)
