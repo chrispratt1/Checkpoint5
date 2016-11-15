@@ -17,4 +17,7 @@
 <p>Total Payments (after 18 months): $@ViewBag.TotalPayments</p>
 <p>Client ID (for employee use): @ViewBag.Instrument.clientID</p>
 
-<p><@Html.ActionLink("Download", "Download")></p>
+@using (Html.BeginForm("DownloadCSV", "Home", new { name = ViewBag.Downloadfilename }, FormMethod.Post))
+{
+    <button type="submit">Download Summary</button>
+}

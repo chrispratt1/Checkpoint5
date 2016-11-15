@@ -73,3 +73,8 @@
 }
 
 </table>
+
+@using (Html.BeginForm("DownloadCSV", "Home", new { name = ViewBag.Downloadfilename }, FormMethod.Post))
+{
+    <button type="submit">Download Client Summary</button>
+}

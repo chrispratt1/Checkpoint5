@@ -45,7 +45,7 @@ namespace Checkpoint4.Models
         public string email { get; set; }
 
         [DisplayName("Phone Number")]
-        [RegularExpression(@"[0-9]?-?\([0-9]{3}\)-? ?[0-9]{3}-[0-9]{4}", ErrorMessage = "Phone must be in this format: (xxx) xxx-xxxx")]
+        //[RegularExpression(@"[0-9]?-?\([0-9]{3}\)-? ?[0-9]{3}-[0-9]{4}", ErrorMessage = "Phone must be in this format: (xxx) xxx-xxxx")]
         [Required(ErrorMessage = "Please enter a phone number")]
         public string phone { get; set; }
     }

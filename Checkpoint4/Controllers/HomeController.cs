@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Checkpoint4.DAL;
 using Checkpoint4.Models;
 using System.Web.Security;
+using System.IO;
 
 namespace Checkpoint4.Controllers
 {
@@ -146,5 +147,20 @@ namespace Checkpoint4.Controllers
                 return View();
             }
         }
+
+        public FileContentResult DownloadCSV()
+        {
+            string csv = "";
+            foreach (Client cli in db.Clients.ToList())
+            {
+                csv += cli.firstName += " ";
+                csv += cli.lastName += " ";
+                csv += cli.phone += " ";
+                csv += cli.city+= ", ";
+                csv += cli.state += " ";
+            }
+            return File(new System.Text.UTF8Encoding().GetBytes(csv), "text/csv", "Report123.csv");
+        }
+
     }
 }
