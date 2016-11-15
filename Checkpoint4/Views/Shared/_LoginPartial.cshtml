@@ -17,24 +17,9 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
         <li><a href="#" data-reveal-id="myModal">Employees</a></li>
-        <li>@Html.ActionLink("Employees", "Index", "Clients", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Employees", "Login", "Home", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
     </ul>
     
-    <div id="myModal" class="reveal-modal">
-        <h1 id="inText">Employee Login</h1><hr />
-
-        <form class="col-md-6 col-sm-12" action="Clients">
-            Username:<br />
-            <input type="text" />
-            <br />
-            Password:<br />
-            <input type="text" />
-            <br /><br />
-            <input type="submit">
-        </form>
-
-        <img src="~/Content/lock.png" class="col-md-6 col-sm-12" />
-
-        <a class="close-reveal-modal">&times;</a>
-    </div>
+    
+    
 }

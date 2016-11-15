@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Checkpoint4.DAL;
 using Checkpoint4.Models;
+using System.Web.Security;
 
 namespace Checkpoint4.Controllers
 {
@@ -15,6 +16,18 @@ namespace Checkpoint4.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(string email, string password)
+        {
+            if (email == "greg@test.com" && password == "greg")
+            {
+                return View(db.Clients.ToList());
+            } else
+            {
+                return View("Index");
+            }
         }
 
         public ActionResult About()
@@ -108,6 +121,30 @@ namespace Checkpoint4.Controllers
             }
 
             return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection form, bool rememberMe = false)
+        {
+            String email = form["Username"].ToString();
+            String password = form["Password"].ToString();
+
+            if (string.Equals(email, "Missouri") && (string.Equals(password, "ShowMe")))
+            {
+                FormsAuthentication.SetAuthCookie(email, rememberMe);
+
+                return RedirectToAction("Index", "Clients");
+
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
